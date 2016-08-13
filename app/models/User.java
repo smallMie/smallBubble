@@ -3,33 +3,42 @@ package models;
 import play.data.validation.Required;
 import play.db.jpa.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity(name = "user")
+@Entity
+@Table(name="user")
 public class User extends Model {
-
-	// ç”¨æˆ·å
+	// ÓÃ»§ĞÕÃû
 	@Required
-	public String u_name;
-
-	// ç”¨æˆ·å¯†ç 
+	@Column(name="user_name",nullable=false,length=64)
+    public String userName;
+	
 	@Required
-	public String u_pwd;
-
-	// ç”¨æˆ·èº«ä»½
+	@Column(name="user_type",nullable=false)
+    public Integer userType;
+	
 	@Required
-	public String type;
+	@Column(name="password",nullable=false,length=64)
+    public String password;
 
-	// åˆ é™¤æ ‡å¿—
+	//É¾³ı±êÖ¾Î»
 	@Required
 	public long flag;
 
-	// ç”¨æˆ·æ³¨å†Œæ—¶é—´
+	//×¢²áÊ±¼ä
 	@Required
-	public String time;
+	@Column(name="user_time",nullable=true)
+	public String userTime;
 
-	// ç”¨æˆ·é‚®ç®±
+	//ÓÃ»§Í·Ïñ
+	@Required
+	@Column(name="user_image",nullable=true)
+	public String userImage;
+	
+	//ÓÃ»§ÓÊÏä
 	@Required
 	public String mail;
 }
