@@ -13,9 +13,14 @@ public class Application extends Controller {
         render();
     }
 
-    public static void demo() {
-    	int id = 10;
-    	List<User> users = User.findAll();
-        render(id,users);
+    public static void signin() {
+        render();
+    }
+    public static void signup() {
+        render();
+    }
+    
+    public static void single() {
+        render();
     }
 }

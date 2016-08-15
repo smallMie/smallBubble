@@ -1,18 +1,70 @@
-<!DOCTYPE html>
-
-<html>
-    <head>
-        <title>#{get 'title' /}</title>
-        <meta charset="${_response_encoding}">
-        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
-        #{get 'moreStyles' /}
-        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
-    </head>
+<!DOCTYPE>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>Bubble</title>
+<link rel="stylesheet" type="text/css" media="screen" href="public/stylesheets/basic.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="public/stylesheets/style.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="public/stylesheets/desktop.css" />
+<link rel="stylesheet" type="text/css" href="public/stylesheets/font-awesome.min.css" />
+<link href="public/stylesheets/jquery.textcomplete.css" rel="stylesheet" />
+</head>
     <body>
-    	1111
+    	<div id="Top">
+	<div class="content">
+		<div style="padding-top: 6px;">
+			<table cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td width="110" align="left"><a href="www.v2ex.html" name="top" title="way to explore">
+						<img src="public/images/logo.png" border="0" align="default" alt="V2EX" width="94" height="30" /></a>
+					</td>
+					<td width="auto" align="left">
+						<div id="Search">
+							<form onsubmit="return dispatch()">
+								<div style="width: 276px; height: 28px; background-size: 276px 28px; background-repeat: no-repeat; display: inline-block;">
+									<input type="text" maxlength="40" name="q" id="q" value="" />
+								</div>
+							</form>
+						</div>
+					</td>
+					<td width="570" align="right" style="padding-top: 2px;"><a
+						href="/" class="top">首页</a>&nbsp;&nbsp;&nbsp;<a
+						href="/signup" class="top">注册</a>&nbsp;&nbsp;&nbsp;<a
+						href="/signin" class="top">登录</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
         #{doLayout /}
-        
         <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-        #{get 'moreScripts' /}
-    </body>
+  		<div id="Bottom">
+		<div class="content">
+			<div class="inner">
+				<div class="sep10"></div>
+				<strong><a href="about" class="dark" target="_self">关于</a>
+					&nbsp; <span class="snow">·</span> &nbsp; <a href="faq"
+					class="dark" target="_self">FAQ</a> &nbsp; <span class="snow">·</span>
+					&nbsp; <a href="p/7v9TEc53" class="dark" target="_self">API</a>
+					&nbsp; <span class="snow">·</span> &nbsp; <a href="mission"
+					class="dark" target="_self">我们的愿景</a> &nbsp; <span class="snow">·</span>
+					&nbsp; <a href="ip" class="dark" target="_self">IP 查询</a> &nbsp; <span
+					class="snow">·</span> &nbsp; <a href="https://workspace.v2ex.com/"
+					class="dark" target="_blank">工作空间</a> &nbsp; <span class="snow">·</span>
+					&nbsp; <a href="http://www.v2ex.com/advertise" class="dark"
+					target="_self">广告投放</a> &nbsp; <span class="snow">·</span> &nbsp; <a
+					href="advertise/2015.html" class="dark" target="_self">鸣谢</a>
+					&nbsp; <span class="snow">·</span> &nbsp; <a href="start"
+					class="dark" target="_blank">上网首页</a> &nbsp; <span class="snow">·</span>
+					&nbsp; 1790 人在线</strong> &nbsp; <span class="fade">最高记录 1946</span> &nbsp; <span
+					class="snow">·</span> &nbsp;
+				<div class="sep20"></div>
+				创意工作者们的社区
+				<div class="sep20"></div>
+			</div>
+		</div>
+	</div>
+
+</body>
 </html>
