@@ -11,34 +11,34 @@ import javax.persistence.Table;
 @Entity
 @Table(name="user")
 public class User extends Model {
-	// 用户姓名
+	// 
 	@Required
 	@Column(name="user_name",nullable=false,length=64)
-    public String userName;
+    public static String userName;
 	
 	@Required
 	@Column(name="user_type",nullable=false)
-    public Integer userType;
+	public static Integer userType;
 	
 	@Required
 	@Column(name="password",nullable=false,length=64)
-    public String password;
+	public static String password;
 
-	//删除标志位
+	//
 	@Required
-	public long flag;
+	public static long flag;
 
-	//注册时间
+	//
 	@Required
 	@Column(name="user_time",nullable=true)
-	public String userTime;
+	public static String userTime;
 
-	//用户头像
+	//
 	@Required
 	@Column(name="user_image",nullable=true)
-	public String userImage;
+	public static String userImage;
 	
-	//用户邮箱
+	//
 	@Required
-	public String mail;
+	public static String mail;
 }
