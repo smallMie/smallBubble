@@ -7,6 +7,8 @@ GET     /                                       Application.index
 GET     /signin                                 Application.signin
 GET     /signup                                 Application.signup
 GET     /single                                 Application.single
+GET     /posts                                  Application.posts
+GET     /code                                   Application.code
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
