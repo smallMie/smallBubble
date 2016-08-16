@@ -6,7 +6,9 @@
 GET     /                                       Application.index
 GET     /signin                                 Application.signin
 GET     /signup                                 Application.signup
-GET     /single                                 Application.single
+GET     /blog_single                            Application.blog_single
+GET     /posts_single                           Application.posts_single
+GET     /code_single                            Application.code_single
 GET     /posts                                  Application.posts
 GET     /code                                   Application.code
 
