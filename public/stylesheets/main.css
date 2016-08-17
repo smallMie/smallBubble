@@ -249,7 +249,6 @@ a:link, a:visited, a:hover, a:focus {
 }
 
 a:-webkit-any-link {
-    color: -webkit-link;
     text-decoration: underline;
     cursor: auto;
 }

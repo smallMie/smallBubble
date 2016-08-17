@@ -5,12 +5,14 @@
 # Home page
 GET     /                                       Application.index
 GET     /signin                                 Application.signin
+POST     /signinAction                          Application.signinAction
 GET     /signup                                 Application.signup
 GET     /blog_single                            Application.blog_single
 GET     /posts_single                           Application.posts_single
 GET     /code_single                            Application.code_single
 GET     /posts                                  Application.posts
 GET     /code                                   Application.code
+GET     /personal                               Application.personal
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

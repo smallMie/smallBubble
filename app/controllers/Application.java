@@ -11,6 +11,18 @@ public class Application extends Controller {
         render();
     }
 
+    public static void posts() {
+        render();
+    }
+    
+    public static void code() {
+        render();
+    }
+    
+    public static void personal() {
+        render();
+    }
+    
     public static void signin() {
         render();
     }
@@ -18,7 +30,15 @@ public class Application extends Controller {
         render();
     }
     
-    public static void single() {
+    public static void blog_single() {
+        render();
+    }
+    
+    public static void posts_single() {
+        render();
+    }
+    
+    public static void code_single() {
         render();
     }
     
@@ -28,11 +48,9 @@ public class Application extends Controller {
 			return;
 		}
 			for (User user : list) {
-				// user.u_pwd = BCrypt.hashpw("123456",BCrypt.gensalt());
-				// user.save();
-				if (username.equals(User.userName)&&pwd.equals(User.password)) {
+				if (username.equals(user.userName)&&pwd.equals(user.password)) {
 					if (user.flag == 1) {
-						session.put("userName", User.userName);
+						session.put("userName", user.userName);
 						redirect("/");
 					} else if (user.flag == -1) {
 						flash.error("您的账号已锁定，请与管理员联系~");

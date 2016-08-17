@@ -29,32 +29,38 @@
 					注册
 				</div>
 				<div class="inner">
-					<form method="post" action="/signup">
+					<form method="post"  name="myForm" ng-app="myApp" ng-controller="myCtrl" novalidate  ng-submit="submit(myForm.$valid)">
 						<table cellpadding="5" cellspacing="0" border="0" width="100%">
 							<tr>
 								<td width="120" align="right" valign="top">
 									<div class="sep5"></div>用户名
 								</td>
 								<td width="auto" align="left">
-									<input type="text" class="sl"/>
+									<input type="text" class="sl"  name="username" value="" autofocus="autofocus" placeholder="用户名" ng-minlength="6" ng-model="username" required/>
+									<span ng-show="myForm.username.$error.minlength" style="color:red;font-size:14px;">用户名不得少于六位</p>
 									<div class="sep5"></div>
-									<span class="fade">请使用半角的 a-z或数字 0-9</span>
 								</td>
 							</tr>
 							<tr>
 								<td width="120" align="right">密码</td>
-								<td width="auto" align="left"><input type="password" class="sl" name="pwd"/></td>
+								<td width="auto" align="left">
+									<input type="password" class="sl" name="pwd" value="" placeholder="密码" ng-minlength="6" ng-model="pwd" required/>
+        		  					<span ng-show="myForm.pwd.$error.minlength" style="color:red;font-size:14px;">密码不得少于六位</p>
+								</td>
 							</tr>
 							<tr>
 								<td width="120" align="right">重复密码</td>
-								<td width="auto" align="left"><input type="password" class="sl" name="repwd" value="" /></td>
+								<td width="auto" align="left"><input type="password" class="sl" name="repwd" ng-model="repwd" value="" />
+									<span ng-show="repwdIsOk" style="color:red;font-size:14px;">重复密码和原密码不同</span>
+								</td>
 							</tr>
 							<tr>
 								<td width="120" align="right" valign="top">
 									<div class="sep5"></div>电子邮件
 								</td>
 								<td width="auto" align="left">
-									<input type="email" class="sl" name="mail"/>
+									<input type="email" name="email" class="sl" ng-model="email" required>
+        							<span ng-show="myForm.email.$invalid && !myForm.email.$pristine" style="color:red;font-size:14px;">邮箱格式不正确</span>
 									<div class="sep5"></div>
 									<span class="fade">请使用真实电子邮箱注册，我们不会将你的邮箱地址分享给任何人</span>
 								</td>
@@ -72,3 +78,29 @@
 	<div class="c"></div>
 	<div class="sep20"></div>
 </div>
+
+<script>
+	var app = angular.module("myApp",[]);
+	app.controller("myCtrl",function($scope,$http){
+		$scope.repwdIsOk = false;
+		$scope.submit = function(isValid) {
+			if($scope.repwd!=$scope.pwd){
+				$scope.repwdIsOk = true;
+				return false;
+			}else if (isValid) {
+				$scope.repwdIsOk = false;
+	        	$http.post('/signupAction',$scope.username,$scope.pwd,$scope.mail)
+			      .success(function(data){
+			        alert("注册成功");
+			        redirect("/");
+			      })
+			      .error(function(data){
+			    	  alert("注册失败，请联系管理员");
+			      });
+	        }else{
+	        	$scope.repwdIsOk = false;
+	        }
+	 
+	    };
+	});
+</script>

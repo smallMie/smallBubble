@@ -1,74 +1,74 @@
 #{extends 'main.html' /}
-	<div id="Wrapper">
-		<div class="content">
-
-			<div id="Leftbar"></div>
-			<div id="Rightbar">
-				<div class="sep20"></div>
-
-				<div class="box">
-					<div class="header">其他登录方式</div>
-					<div class="cell" style="text-align: center;">
-						<a onclick="location.href = '/auth/google?once=34709';" href="#"
-							class="google-signin"></a>
-					</div>
-				</div>
-
-			</div>
-			<div id="Main">
-				<div class="sep20"></div>
-
-				<div class="box">
-					<div class="header">
-						<a href="/">Bubble</a><span class="chevron"> &nbsp;>&nbsp;</span>
-						登录 &nbsp;
-					</div>
-
-
-					<div class="cell">
-						<form method="post" action="/signin">
-							<table cellpadding="5" cellspacing="0" border="0" width="100%">
-								<tr>
-									<td width="120" align="right">用户名</td>
-									<td width="auto" align="left"><input type="text"
-										class="sl"
-										name="1b32bce8dc0db113fc9ba4adebc5b316152a33b8280af5b5312a34043fc7d988"
-										value="" autofocus="autofocus" autocorrect="off"
-										spellcheck="false" autocapitalize="off"
-										placeholder="用户名或电子邮箱地址" /></td>
-								</tr>
-								<tr>
-									<td width="120" align="right">密码</td>
-									<td width="auto" align="left"><input type="password"
-										class="sl"
-										name="363f096f6a458e3d2f834855970de06a0e1f58397c012c38c81d34682616861d"
-										value="" autocorrect="off" spellcheck="false"
-										autocapitalize="off" /></td>
-								</tr>
-								<tr>
-									<td width="120" align="right"></td>
-									<td width="auto" align="left"><input type="hidden"
-										value="34709" name="once" /><input type="submit"
-										class="super normal button" value="登录" /></td>
-								</tr>
-								<tr>
-									<td width="120" align="right"></td>
-									<td width="auto" align="left"><a
-										href="http://www.v2ex.com/forgot">忘记密码</a></td>
-								</tr>
-							</table>
-
-							<input type="hidden" value="/" name="next" />
-
-						</form>
-					</div>
-
-				</div>
-
-			</div>
-
-
-		</div>
-		<div class="c"></div>
-		<div class="sep20"></div>
-	</div>
+<div id="Wrapper">
+  <div class="content">
+    <div id="Leftbar"></div>
+    <div id="Rightbar">
+      <div class="sep20"></div>
+      <div class="box">
+        <div class="header">其他登录方式</div>
+        <div class="cell" style="text-align: center;">
+          <a onclick="location.href = '/auth/google?once=34709';" href="#" class="google-signin"></a>
+        </div>
+      </div>
+    </div>
+    <div id="Main">
+      <div class="sep20"></div>
+      <div class="box">
+        <div class="header">
+          <a href="/">Bubble</a>
+          <span class="chevron">&nbsp;>&nbsp;</span>登录 &nbsp;</div>
+        <div class="cell">
+          <form method="post" name="myForm" ng-app="myApp" ng-controller="myCtrl" novalidate  ng-submit="submit(myForm.$valid)">
+            <table cellpadding="5" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td width="120" align="right">用户名</td>
+                <td width="auto" align="left">
+                  <input type="text" class="sl" name="username" value="" autofocus="autofocus" placeholder="用户名" ng-minlength="6" ng-model="username" required/>
+        		  <span ng-show="myForm.username.$error.minlength" style="color:red;font-size:14px;">用户名不得少于六位</p>
+               </td>
+              </tr>
+              <tr>
+                <td width="120" align="right">密码</td>
+                <td width="auto" align="left">
+                  <input type="password" class="sl" name="pwd" value="" placeholder="密码" ng-minlength="6" ng-model="pwd" required/>
+        		  <span ng-show="myForm.pwd.$error.minlength" style="color:red;font-size:14px;">密码不得少于六位</p>
+                </td>
+              </tr>
+              <tr>
+                <td width="120" align="right"></td>
+                <td width="auto" align="left">
+                  <input type="hidden" value="34709" name="once" />
+                  <input type="submit" class="super normal button" value="登录"/></td>
+              </tr>
+              <tr>
+                <td width="120" align="right"></td>
+                <td width="auto" align="left">
+                  <a href="http://www.v2ex.com/forgot">忘记密码</a></td>
+              </tr>
+            </table>
+            <input type="hidden" value="/" name="next" />
+           </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="c"></div>
+  <div class="sep20"></div>
+</div>
+<script>
+	var app = angular.module("myApp",[]);
+	app.controller("myCtrl",function($scope){
+		$scope.submit = function(isValid) {
+	        if (isValid) {
+	        	$.post('/signinAction',{username:$scope.username,pwd:$scope.pwd})
+			      .success(function(data){
+			        //location.href="/";
+			      })
+			      .error(function(data){
+			        alert("登陆失败，请联系管理员");
+			      });
+	        }
+	 
+	    };
+	});
+</script>

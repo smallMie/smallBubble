@@ -14,31 +14,31 @@ public class User extends Model {
 	// 
 	@Required
 	@Column(name="user_name",nullable=false,length=64)
-    public static String userName;
+    public String userName;
 	
 	@Required
 	@Column(name="user_type",nullable=false)
-	public static Integer userType;
+	public Integer userType;
 	
 	@Required
 	@Column(name="password",nullable=false,length=64)
-	public static String password;
+	public String password;
 
 	//
 	@Required
-	public static long flag;
+	public long flag;
 
 	//
 	@Required
 	@Column(name="user_time",nullable=true)
-	public static String userTime;
+	public String userTime;
 
 	//
 	@Required
 	@Column(name="user_image",nullable=true)
-	public static String userImage;
+	public String userImage;
 	
 	//
 	@Required
-	public static String mail;
+	public String mail;
 }
