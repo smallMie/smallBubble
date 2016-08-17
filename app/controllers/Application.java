@@ -1,9 +1,9 @@
 package controllers;
 
-import java.util.List;
-
-import models.User;
+import models.ResultInfo;
+import play.data.validation.Required;
 import play.mvc.Controller;
+import service.UserService;
 
 public class Application extends Controller {
 
@@ -42,24 +42,9 @@ public class Application extends Controller {
         render();
     }
     
-    public static void signinAction(String username, String pwd) {
-		List<User> list = User.findAll();
-		if (username == null || pwd == null) {
-			return;
-		}
-			for (User user : list) {
-				if (username.equals(user.userName)&&pwd.equals(user.password)) {
-					if (user.flag == 1) {
-						session.put("userName", user.userName);
-						redirect("/");
-					} else if (user.flag == -1) {
-						flash.error("您的账号已锁定，请与管理员联系~");
-						redirect("/login");
-					}
-				}
-			}
-			flash.error("账号或密码错误");
-			redirect("/login");
+    public static void signinAction(@Required String username, @Required String pwd) {
+    	ResultInfo info = UserService.login(username, pwd, session);
+    	renderJSON(info);
 	}
     
     public static void signupAction(String username, String pwd, String email){
