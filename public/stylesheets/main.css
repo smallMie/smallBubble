@@ -105,4 +105,341 @@ a.titlelnk:link, a.titlelnk:active {
 	 border:1px solid lightgrey;
 	 border-radius:3px;
 }
-/* index.html start*/
+/* index.html end*/
+
+
+/* personal.html start*/
+
+
+.main {
+    width: 1170px;
+    margin: 0 auto;
+}
+
+.main .persional_property .person_info_con {
+    background: #fff;
+    border: 1px solid #dcdcdc;
+    margin: 10px auto 0;
+    overflow: hidden;
+    position: relative;
+    padding:10px;
+}
+
+.main .persional_property .person-photo {
+    width: 150px;
+    height: 200px;
+    float: left;
+    margin: 15px 30px 15px 20px;
+}
+
+.main .persional_property .person-info .person-nick-name span {
+    display: block;
+    float: left;
+    font-size: 24px;
+    color: #333;
+    font-weight: normal;
+}
+
+
+.main .persional_property .person_add_focus {
+    display: block;
+    height: 22px;
+    line-height: 22px;
+    background: #ececec;
+    color: #666;
+    font-size: 12px;
+    padding: 0px 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 14px;
+    top: 23px;
+}
+
+
+.main .persional_property .focus_num {
+    width: 72px;
+    height: 32px;
+    margin:20px 0 10px 0;
+    border-right: 1px solid #f0f0f0;
+    float: left;
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+    overflow: hidden;
+}
+
+
+.main .persional_property .focus_num b {
+    color: #333;
+    display: block;
+    width: 72px;
+    text-align: center;
+    line-height: 14px;
+    float: left;
+}
+
+
+.main .persional_property .fans_num {
+    width: 72px;
+    height: 32px;
+    margin:20px 0 10px 0;
+    float: left;
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+    overflow: hidden;
+}
+
+.main .persional_property  .fans_num b {
+    color: #333;
+    display: block;
+    width: 72px;
+    text-align: center;
+    line-height: 14px;
+    float: left;
+}
+
+strong, b {
+    font-weight: bold;
+}
+
+dl {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+dd {
+    display: block;
+    -webkit-margin-start: 40px;
+}
+
+.main .persion_section .mod_resource {
+    background: #fff;
+    margin-bottom: 10px;
+    padding: 22px 25px;
+    border: 1px solid #dcdcdc;
+}
+
+
+.main .persion_section .mod_resource .tabs {
+    margin-bottom: 30px;
+}
+
+.main .persion_section .mod_resource .tabs .active {
+    background: #be1a21;
+    color: #fff;
+}
+.main .persion_section .mod_resource .tabs a {
+    background: #ececec;
+    float: left;
+    width: 119px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    color: #000;
+    font-size: 16px;
+    text-decoration: none;
+    margin-right: 10px;
+}
+a:link, a:visited, a:hover, a:focus {
+    text-decoration: none !important;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    text-decoration: underline;
+    cursor: auto;
+}
+
+
+.main .persional_property .person-status .status .scores em:first-child {
+    margin-left: 0;
+}
+.main .persional_property .person-status .status .scores .blog {
+    background: url("../images/blog.png") no-repeat;
+}
+
+.main .persional_property .person-status .status .scores .bbs {
+    background: url("../images/ask.png") no-repeat;
+}
+
+.main .persional_property .person-status .status .scores .code {
+    background: url("../images/code.png") no-repeat;
+}
+
+.main .persional_property .person-status .status .scores em {
+    cursor: pointer;
+}
+.main .persional_property .person-status .status .scores em {
+    display: inline-block;
+    width: 48px;
+    height: 16px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+.main .persional_property .person-status .status em, .main .persional_property .person-status .status i {
+    font-style: normal;
+}
+
+i, cite, em, var, address, dfn {
+    font-style: italic;
+}
+
+.main .persional_property .person-status .status .scores {
+    white-space: nowrap;
+}
+
+
+.main .persional_property .person-status {
+    float: left;
+    margin: 0;
+    width: 890px;
+    margin:10px 0px;
+}
+
+
+.main .persion_section {
+    width: 860px;
+    margin-bottom: 10px;
+    margin-right: 9px;
+}
+
+
+.main .persional_property {
+    clear: both;
+    margin: 10px 0;
+}
+
+
+.main .persion_section .mod_resource .list li {
+    list-style: none;
+    padding: 20px 0;
+    border-bottom: 1px dashed #f0f0f0;
+    padding-left: 5px;
+}
+
+
+.main .persion_section .mod_resource .list li .tit {
+    width: 500px;
+    color: #333;
+    font-size: 12px;
+    text-decoration: none;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.main .persion_section .mod_resource li .dTime {
+    margin-right: 30px;
+}
+.main .persion_section .mod_resource li .dTime, .main .persion_section .mod_resource li .commend {
+    float: right;
+}
+.main .persion_section .mod_resource .list li .dTime {
+    font-size: 12px;
+    color: #999;
+}
+
+.main .persion_section .mod_resource .list li .tit, .main .persion_section .mod_resource .list li .stars, .main .persion_section .mod_resource .list li .commend, .main .persion_section .mod_resource .list li .dTime {
+    float: left;
+}
+
+.main .persion_article .interested_con {
+    width: 298px;
+    border: 1px solid #dcdcdc;
+    background: #fff;
+    margin-bottom: 10px;
+    display: none;
+}
+
+.main .persion_article .mod_relations {
+    background: #fff;
+    border: 1px solid #dcdcdc;
+}
+
+.main .persion_article {
+    width: 300px;
+}
+.main .persion_section, .main .persion_article {
+    float: left;
+    zoom:1;
+}
+
+.clearfix:after {
+    content: '.';
+    height: 0;
+    visibility: hidden;
+    display: block;
+    clear: both;
+}
+
+
+
+.main .persion_article .mod_relations {
+    background: #fff;
+    border: 1px solid #dcdcdc;
+}
+
+
+.main .persion_article .mod_relations .list {
+    padding: 0px 20px;
+}
+
+
+.main .persion_article .mod_relations .list .focus img {
+    width: 50px;
+    height: 50px;
+    border: none;
+}
+
+
+
+.main .persion_article .mod_relations .list .focus a {
+    float: left;
+    margin-right: 12px;
+    margin-bottom: 15px;
+}
+
+a:link, a:visited, a:hover, a:focus {
+    text-decoration: none !important;
+}
+
+.focus .clearfix{
+	padding:10px 0px;
+}
+
+.main .persion_article{
+	margin-bottom:10px;
+}
+.main .persion_article .mod_relations h3 {
+    font-size: 16px;
+    color: #333;
+    padding: 15px 20px;
+    font-weight: normal;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.main .persion_section .mod_resource .list-blog li .commend {
+    margin-right: 0;
+}
+.main .persion_section .mod_resource .list-blog li .dTime, .main .persion_section .mod_resource .list-blog li .commend {
+    float: right;
+}
+.main .persion_section .mod_resource .list-posts li .dTime, .main .persion_section .mod_resource .list-posts li .commend {
+    float: right;
+}
+
+.main .persion_section .mod_resource .list-resource li .dTime, .main .persion_section .mod_resource .list-resource li .commend {
+    float: right;
+}
+.main .persion_section .mod_resource .list li .commend {
+    text-decoration: none;
+    font-size: 12px;
+    color: #999;
+    margin-right: 18px;
+    width: 95px;
+}

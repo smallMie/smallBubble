@@ -1,0 +1,139 @@
+#{extends 'main.html' /}
+ <div class="main clearfix" style="zoom:1;overflow:hidden;">
+ 	  
+      <div class="persional_property">
+        <div class="person_info_con">
+        <a href="/">Bubble</a>
+          <span class="chevron">&nbsp;>&nbsp;</span>
+          <a href="/personal">个人中心</a>
+          <div class="sep10"></div>
+        <a class="person_add_focus"><i class="icon-plus"></i>关注</a>
+          <dl class="person-photo">
+            <dt><a href="javascript:;"><img src="http://avatar.csdn.net/2/1/B/1_u013278099.jpg" class="header"></a></dt>
+          </dl>
+          <dl class="person-info">
+            <dt class="person-nick-name"><span>Losileeya</span></dt>
+            <dd style="margin: 10px 0px">
+		          <div class="person-status clearfix">
+		            <div class="status">
+		            <span class="scores">
+		            <em class="blog" style="text-align:right;color:#fff;">6&nbsp;</em>
+		            <em class="bbs"  style="text-align:right;color:#fff;">3&nbsp;</em>
+		            <em class="code" style="text-align:right;color:#fff;">4&nbsp;</em>
+		            </span>
+		            <span class="medals">
+		                <div class="wraper"></div>
+		            </span>
+		            </div>
+		            <div class="focus_num"><b>15</b>关注</div>
+            <div class="fans_num"><b>135</b>粉丝</div>
+		          </div>
+            </dd>
+            
+          </dl>
+        </div>
+      </div>
+      <div class="persion_section">
+        
+        <div class="mod_resource" ng-controller="myCtrl" ng-app="myApp">
+          <div id="tabResources" class="tabs clearfix" >
+	          <a ng-class="{active:first}" ng-click="tabClick(1)" style="cursor:pointer;">发表的博客</a>
+	          <a  ng-class="{active:second}" ng-click="tabClick(2)"  style="cursor:pointer;">发布的帖子</a>
+	          <a ng-class="{active:third}" ng-click="tabClick(3)"  style="cursor:pointer;">贡献的资源</a>
+          </div>
+          <div id="divResources">
+          	<div class="list-blog list activeContent" ng-show="first">
+              <li class="clearfix" ng-repeat ="tab in tabs">
+	              <a href="" class="tit" title="{{tab.content}}">{{tab.content}}</a>
+	              <span class="commend"><i class="comm_icon"></i>评论（{{tab.comments}}）</span>
+	              <span class="dTime">{{tab.vote}}人赞</span>
+              </li>
+            </div>
+            <div data-modal="tab-layer" class="list-posts list"  ng-show="second">
+           		<li class="clearfix" ng-repeat ="tab in tabs">
+	              <a href="" class="tit" title="{{tab.content}}">{{tab.content}}</a>
+	              <span class="commend"><i class="comm_icon"></i>评论（{{tab.comments}}）</span>
+	              <span class="dTime">{{tab.date}}</span>
+              </li>
+            </div>
+            <div data-modal="tab-layer" class="list-resource list "  ng-show="third">
+              <li class="clearfix"  ng-repeat ="tab in tabs">
+              <a href="" class="tit" title="jni_master">{{tab.content}}</a>
+              <span class="commend"><i class="comm_icon"></i>评论（{{tab.comments}}）</span>
+              <span class="dTime">下载{{tab.download}}次</span>
+              </li>
+            </div>
+          </div>
+        </div>
+     
+      </div>
+      <div class="persion_article">
+        <div class="interested_con">
+          <h3>对Ta感兴趣的人</h3>
+          <ul nodetype="inter-list" data-bind="list" class="clearfix">
+            <li><a href="#" target="_blank" data-bind="headerHref"><img src="" username="" data-bind="headerSrc"></a></li>
+          </ul>
+          <div class="count-and-more"><span>最近一周被访问了<em data-bind="times"></em>次</span></div>
+        </div>
+        <div class="mod_relations">
+          <h3>Ta的关系</h3>
+          <div class="list">
+            <div class="focus">
+              <div class="num">关注：<span>15</span>人</div>
+              <div class="clearfix">
+              				<a href=tencent_bugly ><img src='http://avatar.csdn.net/D/B/1/1_tencent_bugly.jpg' username='tencent_bugly'/></a><a href=jdsjlzx ><img src='http://avatar.csdn.net/2/9/C/1_jdsjlzx.jpg' username='jdsjlzx'/></a><a href=lincyang ><img src='http://avatar.csdn.net/7/8/A/1_lincyang.jpg' username='lincyang'/></a><a href=u010687392 ><img src='http://avatar.csdn.net/6/E/C/1_u010687392.jpg' username='u010687392'/></a><a href=u012702547 ><img src='http://avatar.csdn.net/D/0/B/1_u012702547.jpg' username='u012702547'/></a><a href=wwj_748 ><img src='http://avatar.csdn.net/C/C/8/1_wwj_748.jpg' username='wwj_748'/></a><a href=u012515223 ><img src='http://avatar.csdn.net/7/3/E/1_u012515223.jpg' username='u012515223'/></a><a href=nugongahou110 ><img src='http://avatar.csdn.net/9/0/A/1_nugongahou110.jpg' username='nugongahou110'/></a>              </div>
+            </div>
+            <div class="focus beFocus">
+              <div class="num">被关注：<span>135</span>人</div>
+              <div class="clearfix">
+              					<a href=perston ><img src='http://avatar.csdn.net/7/6/2/1_perston.jpg' username='perston'/></a><a href=u013585660 ><img src='http://avatar.csdn.net/4/F/9/1_u013585660.jpg' username='u013585660'/></a><a href=wei18500918480 ><img src='http://avatar.csdn.net/8/5/B/1_wei18500918480.jpg' username='wei18500918480'/></a><a href=qq_30538039 ><img src='http://avatar.csdn.net/6/1/0/1_qq_30538039.jpg' username='qq_30538039'/></a><a href=aaaaaaaaabaas ><img src='http://avatar.csdn.net/3/5/F/1_aaaaaaaaabaas.jpg' username='aaaaaaaaabaas'/></a><a href=qq_35085269 ><img src='http://avatar.csdn.net/9/C/A/1_qq_35085269.jpg' username='qq_35085269'/></a><a href=longuto_2016 ><img src='http://avatar.csdn.net/A/8/F/1_longuto_2016.jpg' username='longuto_2016'/></a><a href=dmin0723 ><img src='http://avatar.csdn.net/2/F/2/1_dmin0723.jpg' username='dmin0723'/></a>              					
+              </div>
+            </div>
+          </div>
+        </div>
+            </div>
+    </div>
+    
+<script>
+	var app = angular.module("myApp",[]);
+	app.controller("myCtrl",function($scope){
+		$scope.first = true;
+		$scope.second = false;
+		$scope.third = false;
+		
+		$scope.tabs = [
+			{content:'jquerylalallala',comments:2,vote:3},
+			{content:'jquery',comments:4,vote:3}
+		];
+		
+		$scope.tabClick = function(num){
+			$scope.tabs = [];
+			if(num==1){
+				$scope.first = true;
+				$scope.second = false;
+				$scope.third = false;
+				$scope.tabs = [
+					{content:'jquerylalallala',comments:2,vote:3},
+					{content:'jquery',comments:4,vote:3}
+				];
+			}else if(num==2){
+				$scope.first = false;
+				$scope.second = true;
+				$scope.third = false;
+				$scope.tabs = [
+					{content:'jqueryala',comments:2,date:"2013-09-08"},
+					{content:'jquery666666666',comments:4,date:"2013-09-08"}
+				];
+			}else{
+				$scope.first = false;
+				$scope.second = false;
+				$scope.third = true;
+				$scope.tabs = [
+					{content:'[移动开发]jni_master',download:2,comments:4},
+					{content:'jq2222222222222266',download:4,comments:4}
+				];
+			}
+				
+		}
+	});
+</script>
