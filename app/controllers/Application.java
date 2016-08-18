@@ -42,6 +42,10 @@ public class Application extends Controller {
         render();
     }
     
+    public static void settings() {
+        render();
+    }
+    
     public static void signinAction(@Required String username, @Required String pwd) {
     	ResultInfo info = UserService.login(username, pwd, session);
     	renderJSON(info);

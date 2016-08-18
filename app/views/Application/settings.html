@@ -1,0 +1,196 @@
+#{extends 'main.html' /}
+<style>
+#Wrapper td{
+	font-size:12px;
+}
+</style>
+<html>
+ <head></head>
+ <body>
+  <div id="Wrapper"> 
+   <div class="content"> 
+    <div id="Leftbar"></div> 
+    <div id="Rightbar"> 
+     <div class="sep20"></div> 
+     <div class="box"> 
+      <div class="cell" style="padding-bottom:20px;"> 
+       <table cellpadding="0" cellspacing="0" border="0" width="100%"> 
+        <tbody>
+         <tr> 
+          <td width="48" valign="top"><a href="/member/jichunyang"><img src="//cdn.v2ex.co/gravatar/c38e58496870afd1bc74759d9a580db5?s=48&amp;d=retro" class="avatar" border="0" align="default" style="max-width: 48px; max-height: 48px;" /></a></td> 
+          <td width="10" valign="top"></td> 
+          <td width="auto" align="left"><span class="bigger"><a href="/member/jichunyang">jichunyang</a></span> </td> 
+         </tr> 
+        </tbody>
+       </table> 
+       <div class="sep10"></div> 
+       <table cellpadding="0" cellspacing="0" border="0" width="100%"> 
+        <tbody>
+         <tr> 
+          <td width="33%" align="center">
+          <a href="/my/nodes" class="dark" style="display: block;">
+          	<span class="bigger">6</span>
+            <div class="sep3"></div><span class="fade">博客</span></a></td> 
+          <td width="34%" style="border-left: 1px solid rgba(100, 100, 100, 0.4); border-right: 1px solid rgba(100, 100, 100, 0.4);" align="center">
+          
+          <a href="/my/topics" class="dark" style="display: block;">
+          	<span class="bigger">7</span>
+            <div class="sep3"></div>
+            <span class="fade">帖子</span></a></td> 
+          <td width="33%" align="center">
+          	<a href="/my/following" class="dark" style="display: block;">
+          	<span class="bigger">4</span>
+            <div class="sep3"></div><span class="fade">代码</span></a></td> 
+         </tr> 
+        </tbody>
+       </table> 
+      </div> 
+ 
+      <div class="cell" style="padding: 5px;"> 
+       <table cellpadding="0" cellspacing="0" border="0" width="100%"> 
+        <tbody>
+         <tr> 
+         <td width="15"></td> 
+          <td width="20"><a href="/new_blog"><div class="icon"></div></a></td> 
+          <td width="10"></td> 
+          <td width="auto" valign="middle" align="left"><a href="/new_blog">博客</a></td> 
+          <td width="20"><a href="/new_posts"><div class="icon"></div></a></td> 
+          <td width="10"></td> 
+          <td width="auto" valign="middle" align="left"><a href="/new_posts">帖子</a></td> 
+          <td width="20"><a href="/new_code"><div class="icon"></div></a></td> 
+          <td width="10"></td> 
+          <td width="auto" valign="middle" align="left"><a href="/new_code">代码</a></td> 
+         </tr> 
+        </tbody>
+       </table> 
+      </div> 
+      <div class="inner">
+       
+      </div> 
+     </div> 
+     <div class="sep20"></div> 
+     <div class="box"> 
+      <div class="cell">
+      	我的关注
+      </div> 
+      <div class="inner"> 
+       
+      </div> 
+     </div> 
+     <div class="sep20"></div> 
+     <div class="box"> 
+      <div class="cell">
+      	我的粉丝
+      </div> 
+      <div class="cell" style="padding: 5px;"> 
+
+      </div>
+     </div> 
+    </div> 
+    <div id="Main"> 
+     <div class="sep20"></div> 
+     <div class="box"> 
+      <div class="header">
+       <a href="/">Bubble</a> 
+       <span class="chevron">&nbsp;›&nbsp;</span> 设置
+      </div> 
+      <div class="inner"> 
+       <form method="post" action="/settings"> 
+        <table cellpadding="5" cellspacing="0" border="0" width="100%"> 
+         <tbody>
+          <tr> 
+           <td width="120" align="right">用户名</td> 
+           <td width="auto" align="left">jichunyang </td> 
+          </tr> 
+          <tr> 
+           <td width="120" align="right">电子邮件</td> 
+           <td width="auto" align="left"><input type="email" class="sl" name="email" value="878147364@qq.com" autocomplete="off" /></td> 
+          </tr> 
+          <tr> 
+           <td width="120" align="right">个人简介</td> 
+           <td width="auto" align="left"><textarea class="ml" name="bio"></textarea></td> 
+          </tr> 
+          <tr> 
+           <td width="120" align="right"></td> 
+           <td width="auto" align="left"><input type="hidden" value="1" name="show_ads" /><input type="hidden" value="51318" name="once" /><input type="submit" class="super normal button" value="保存设置" /></td> 
+          </tr> 
+         </tbody>
+        </table> 
+       </form> 
+      </div> 
+     </div> 
+     <div class="sep20"></div> 
+     <div class="box"> 
+      <div class="cell">
+       <div class="fr">
+       </div>头像上传
+      </div> 
+      <div class="cell"> 
+       <table cellpadding="5" cellspacing="0" border="0" width="100%" ng-app="myApp" ng-controller="myCtrl"> 
+        <tbody>
+         <tr> 
+          <td width="120" align="right">当前头像</td> 
+          <td width="auto" align="left">
+	          <img src="{{img}}" class="avatar" width="73" height="73" border="0" align="default" /> &nbsp; 
+	          <img src="public/images/flower.jpg" class="avatar" width="48" height="48" border="0" align="default" /> &nbsp; 
+	          <img src="public/images/flower.jpg" class="avatar" width="24" height="24" border="0" align="default" /></td> 
+         </tr> 
+         <tr> 
+          <td width="120" align="right"></td> 
+          <td width="auto" align="left">
+	          <input type="hidden" value="51318" name="once" />
+	          <input type="file" class="super normal button" value="上传新头像" style="width:80px;position:absolute;opacity:0;"/>
+	          <input type="button" value="上传新头像" id="uploadPic"/>
+          </td> 
+         </tr> 
+        </tbody>
+       </table> 
+      </div> 
+     </div> 
+     <div class="sep20"></div> 
+     <div class="box"> 
+      <div class="cell">
+       <div class="fr">
+        <span class="fade">如果你不打算更改密码，请留空以下区域</span>
+       </div>更改密码
+      </div> 
+      <div class="inner"> 
+       <form method="post" action="/settings/password"> 
+        <table cellpadding="5" cellspacing="0" border="0" width="100%"> 
+         <tbody>
+          <tr> 
+           <td width="120" align="right">当前密码</td> 
+           <td width="auto" align="left"><input type="password" class="sl" name="password_current" value="" /></td> 
+          </tr> 
+          <tr> 
+           <td width="120" align="right">新密码</td> 
+           <td width="auto" align="left"><input type="password" class="sl" name="password_new" value="" /></td> 
+          </tr> 
+          <tr> 
+           <td width="120" align="right">再次输入新密码</td> 
+           <td width="auto" align="left"><input type="password" class="sl" name="password_again" value="" /></td> 
+          </tr> 
+          <tr> 
+           <td width="120" align="right"></td> 
+           <td width="auto" align="left"><input type="hidden" value="51318" name="once" /><input type="submit" class="super normal button" value="更改密码" /></td> 
+          </tr> 
+         </tbody>
+        </table> 
+       </form> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="c"></div> 
+   <div class="sep20"></div> 
+  </div>
+ </body>
+</html>
+
+<script>
+	var app = angular.module("myApp",[]);
+	app.controller("myCtrl",function($scope){
+		$scope.img = "${user.id}";
+		alert($scope.img);
+	});
+</script>

@@ -62,7 +62,11 @@
 	        if (isValid) {
 	        	$.post('/signinAction',{username:$scope.username,pwd:$scope.pwd})
 			      .success(function(data){
-			        //location.href="/";
+			    	  if(data.code==200){
+			    		  location.href = "/";
+			    	  }else{
+			    		  alert(data.msg);
+			    	  }
 			      })
 			      .error(function(data){
 			        alert("登陆失败，请联系管理员");

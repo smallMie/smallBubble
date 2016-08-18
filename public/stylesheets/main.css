@@ -157,7 +157,7 @@ a.titlelnk:link, a.titlelnk:active {
 
 
 .main .persional_property .focus_num {
-    width: 72px;
+    width: 52px;
     height: 32px;
     margin:20px 0 10px 0;
     border-right: 1px solid #f0f0f0;
@@ -172,7 +172,7 @@ a.titlelnk:link, a.titlelnk:active {
 .main .persional_property .focus_num b {
     color: #333;
     display: block;
-    width: 72px;
+    width: 52px;
     text-align: center;
     line-height: 14px;
     float: left;
@@ -180,7 +180,7 @@ a.titlelnk:link, a.titlelnk:active {
 
 
 .main .persional_property .fans_num {
-    width: 72px;
+    width: 52px;
     height: 32px;
     margin:20px 0 10px 0;
     float: left;
@@ -193,7 +193,7 @@ a.titlelnk:link, a.titlelnk:active {
 .main .persional_property  .fans_num b {
     color: #333;
     display: block;
-    width: 72px;
+    width: 52px;
     text-align: center;
     line-height: 14px;
     float: left;
@@ -442,3 +442,31 @@ a:link, a:visited, a:hover, a:focus {
     margin-right: 18px;
     width: 95px;
 }
+
+
+/* settings.html开始 */
+.icon {
+    background-image: url("../images/f_icon.png");
+    font-size: 16px;
+    width: 20px;
+    height: 20px;
+    background-position: 1px -69px;
+    position: relative;
+    z-index: 1001;
+    background-repeat: no-repeat;
+}
+
+#uploadPic{
+	padding: 4px 8px 4px 8px;
+    border: 1px solid rgba(80,80,90, 0.2);
+    border-bottom-color: rgba(80,80,90, 0.35);
+    border-radius: 3px;
+    font-size: 12px;
+    background-color: #fff;
+    color: #333;
+    text-shadow: 0px 1px 0px #fff;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0px 1px 0px rgba(66, 66, 77, 0.1);
+}
+
