@@ -126,6 +126,7 @@
           <a href="go/nodejs.html">mysql</a>&nbsp; &nbsp;
           <a href="go/cloud.html">php</a>&nbsp; &nbsp;
           <a href="go/bb.html">前端框架</a></div>
+          #{list items:blogs, as:'blog'}
 		  <div class="post_item">
 			  <div class="digg">
 			    <div class="diggit">
@@ -135,15 +136,15 @@
 			  </div>
 			  <div class="post_item_body">
 			    <h3>
-			      <a class="titlelnk" href="/blog_single">制作自己的MVC框架（一）——简单粗暴的实现</a></h3>
+			      <a class="titlelnk" href="/blog_single?id=${blog.id}">${blog.blogTitle}</a></h3>
 			    <div class="post_item_summary">
-			      <a href="http://www.cnblogs.com/strick/" target="_blank">
-			        <img width="48" height="48" class="pfs" src="http://pic.cnblogs.com/face/211606/20141022114859.png" alt="" />
+			      <a href="/personal?id=${blog.user.id}" target="_blank">
+			        <img width="48" height="48" class="pfs" src="${blog.user.userImage}" alt="" />
 			      </a>
 			        <div>现在市面上有很多成熟的MVC框架，可以拿来直接用，但自己造一下轮子其实也挺有意思的。 下面先来看个最简单粗暴的MVC实现。 5个文件就能实现最简单的MVC，在Apache中设置一个虚拟目录，配置个简单域名，就可以顺利访问了。 为了实现简单，这里没有写模型层。 一、index.php 这个文件是入口文 ...</div>
 			    </div>
 			    <div class="post_item_foot">
-			      <a href="http://www.cnblogs.com/strick/" class="lightblue">咖啡机（K.F.J）</a>发布于 2016-08-16 11:48
+			      <a href="/personal?id=${blog.user.id}" class="lightblue">${blog.user.userName}</a>&nbsp;&nbsp;&nbsp;发布于 ${blog.createTime}
 			      <span class="article_comment">
 			        <a href="http://www.cnblogs.com/strick/p/5767906.html#commentform" title="" class="gray">评论(0)</a></span>
 			      <!-- <span class="article_view">
@@ -152,6 +153,7 @@
 			  </div>
 			  <div class="clear"></div>
 		</div>
+		#{/list}
         <div class="inner">
           <span class="chevron">→</span>
           <a href="recent">更多新主题</a>

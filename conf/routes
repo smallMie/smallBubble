@@ -14,6 +14,8 @@ GET     /posts                                  Application.posts
 GET     /code                                   Application.code
 GET     /personal                               Application.personal
 GET     /settings                               Application.settings
+GET     /logout                                 Application.logout
+POST     /change_image                            Application.changeImage
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

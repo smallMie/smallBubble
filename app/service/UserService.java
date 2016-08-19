@@ -1,9 +1,13 @@
 package service;
 
 import java.io.File;
+import java.util.Date;
 
+import controllers.Application;
 import models.ResultInfo;
 import models.User;
+import play.Play;
+import play.libs.Files;
 import play.mvc.Http.Request;
 import play.mvc.Scope.Session;
 
@@ -17,13 +21,31 @@ public class UserService {
 			    .find("userName = ? and password = ?", username, password)
 			    .first();
 		    if(user!=null){
+		    	session.put("user_id", user.id);
 		    	session.put("username", user.userName);
 		    	info.setCodeAndMsg(200);
-		    	user.password=user.mail=null;	  	    	
+		    	user.password = null;	  	    	
 		    	info.setInfo(user);
 		    }else{
 		    	info.setCodeAndMsg(1001);
 		    }
+		}
+		return info;
+	}
+	
+	public static boolean changeImage(File image){
+		boolean info = false;
+		Session user = Session.current();
+		long userId = Long.parseLong(user.get("user_id"));
+		User jpa = User.find("id=?", userId).first();
+		if (!"".equals(image) && image != null) {
+			long time = new Date().getTime();
+			String imgName = "public/upload/" + "image" + time + ".jpg";
+			Files.copy(image, Play.getFile(imgName));
+			jpa.userImage = imgName;
+			jpa.save();
+			info = true;
+			Application.settings();
 		}
 		return info;
 	}

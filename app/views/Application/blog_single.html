@@ -12,9 +12,9 @@
         <div class="inner" style="zoom:1;overflow:hidden;">
           <div class="sep5"></div>
           	<div>
-            <a href="../member/Seita.html">
-              <img  style="float:left;" src="http://cdn.v2ex.co/avatar/0d3d/81a9/50439_large.png?m=1402416556" class="avatar" border="0"/></a>
-              <div style="float:left;margin-left:15px;">作者：xxx<br>粉丝：6<br>
+            <a href="/personal?id=${blog.user.id}">
+              <img  style="float:left;width:73px;height:73px;" src="${blog.user.userImage}" class="avatar" border="0"/></a>
+              <div style="float:left;margin-left:15px;">作者：${blog.user.userName}<br>粉丝：6<br>
               	<input type="button" value="+关注" style="margin-top:6px;border:1px solid lightgrey;border-radius:3px;color:#666;"/>
               </div>
           </div>
@@ -52,7 +52,7 @@
           <span class="chevron">&nbsp;>&nbsp;</span>
           <a href="/">博客分享</a>
           <div class="sep10"></div>
-          <h1>我从未见过如此优雅的 Markdown 编辑器</h1>
+          <h1>${blog.blogTitle}</h1>
           <div id="topic_299262_votes" class="votes">
             <a href="javascript:" onclick="upVoteTopic(299262);" class="vote">
               <li class="fa">♥</li>&nbsp;1</a>
@@ -70,31 +70,10 @@
           </small>
        </div>
         <div class="cell">
-          <div class="topic_content">
-            <div class="markdown_body">
-              <p>有人还记得我 600 多天的轮子吗 (
-                <a href="http://v2ex.com/t/140281" rel="nofollow">http://v2ex.com/t/140281</a>)，这次我又给它造了个轮子。</p>
-              <hr>
-              <p>不管是否优雅，不过这的确是个 Markdown 编辑器，它支持:</p>
-              <ul>
-                <li>GFM 语法</li>
-                <li>Math 语法</li>
-                <li>Vim 模式</li>
-                <li>无干扰模式</li>
-                <li>导出 PDF 图片等等</li>
-                <li>多个 tab 支持</li>
-                <li>...</li></ul>
-              <p>基于 Electron 和 Vue 开发，你可以来帮助它支持更多功能。</p>
-              <p>关于 Electron 有很多人不喜欢，理由是太大、对电池不好等等，我可以提供一个解决方案，就是忽略这个帖子。</p>
-              <hr>
-              <p>
-                <strong>EME 首页:
-                  <a href="https://eme.moe/" rel="nofollow">https://eme.moe</a></strong>
-              </p>
-              <p>
-                <strong>GitHub 页面:
-                  <a href="https://github.com/egoist/eme" rel="nofollow">https://github.com/egoist/eme</a></strong>
-              </p>
+          <div class="topic_content" ng-app="app" ng-controller="ctrl">
+          	<span>{{html}}</span>
+            <div class="markdown_body" ng-bind-html="html|htmlContent">
+              ${blog.blogContent}
             </div>
           </div>
           </div>
@@ -133,3 +112,19 @@
   <div class="c"></div>
   <div class="sep20"></div>
 </div>
+
+<script>
+var app = angular.module("app",[]);
+app.controller('ctrl',function($scope) {
+    	 $scope.html = '${blog.blogContent}'.replace(/(\n)+|(\r\n)+/g, "");
+    	 $scope.html = $scope.html.replace($scope.html, ">", "&gt;");
+      	 $scope.html = $scope.html.replace($scope.html, "<", "&lt;");
+      	 alert($scope.html);
+      }
+   );
+app.filter('htmlContent',['$sce', function($sce) {
+	return function(input) {
+		return $sce.trustAsHtml(input);
+	}
+}]);
+</script>

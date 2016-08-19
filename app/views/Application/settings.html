@@ -17,9 +17,10 @@
        <table cellpadding="0" cellspacing="0" border="0" width="100%"> 
         <tbody>
          <tr> 
-          <td width="48" valign="top"><a href="/member/jichunyang"><img src="//cdn.v2ex.co/gravatar/c38e58496870afd1bc74759d9a580db5?s=48&amp;d=retro" class="avatar" border="0" align="default" style="max-width: 48px; max-height: 48px;" /></a></td> 
+          <td width="48" valign="top"><a href="/member/jichunyang">
+          <img src="${user.userImage}" class="avatar" border="0" align="default" style="width: 48px; height: 48px;" /></a></td> 
           <td width="10" valign="top"></td> 
-          <td width="auto" align="left"><span class="bigger"><a href="/member/jichunyang">jichunyang</a></span> </td> 
+          <td width="auto" align="left"><span class="bigger"><a href="/member/jichunyang">${user.userName}</a></span> </td> 
          </tr> 
         </tbody>
        </table> 
@@ -100,11 +101,11 @@
          <tbody>
           <tr> 
            <td width="120" align="right">用户名</td> 
-           <td width="auto" align="left">jichunyang </td> 
+           <td width="auto" align="left">${user.userName}</td> 
           </tr> 
           <tr> 
            <td width="120" align="right">电子邮件</td> 
-           <td width="auto" align="left"><input type="email" class="sl" name="email" value="878147364@qq.com" autocomplete="off" /></td> 
+           <td width="auto" align="left"><input type="email" class="sl" name="email" value="${user.mail}" autocomplete="off" /></td> 
           </tr> 
           <tr> 
            <td width="120" align="right">个人简介</td> 
@@ -132,15 +133,17 @@
           <td width="120" align="right">当前头像</td> 
           <td width="auto" align="left">
 	          <img src="{{img}}" class="avatar" width="73" height="73" border="0" align="default" /> &nbsp; 
-	          <img src="public/images/flower.jpg" class="avatar" width="48" height="48" border="0" align="default" /> &nbsp; 
-	          <img src="public/images/flower.jpg" class="avatar" width="24" height="24" border="0" align="default" /></td> 
+	          <img src="{{img}}" class="avatar" width="48" height="48" border="0" align="default" /> &nbsp; 
+	          <img src="{{img}}" class="avatar" width="24" height="24" border="0" align="default" /></td> 
          </tr> 
          <tr> 
           <td width="120" align="right"></td> 
           <td width="auto" align="left">
-	          <input type="hidden" value="51318" name="once" />
-	          <input type="file" class="super normal button" value="上传新头像" style="width:80px;position:absolute;opacity:0;"/>
-	          <input type="button" value="上传新头像" id="uploadPic"/>
+          <form  action="/change_image" method="post" enctype="multipart/form-data" >
+	          <input type="file" file-model="myFile" name="image" class="super normal button" value="上传新头像" style="width:80px;position:absolute;opacity:0;" ng-show="pic"/>
+	          <input type="button" value="上传新头像" id="uploadPic" ng-show="pic"/>
+	          <input type="submit" value="确认上传" id="uploadPic" ng-hide="pic"/>
+          </form>
           </td> 
          </tr> 
         </tbody>
@@ -189,8 +192,71 @@
 
 <script>
 	var app = angular.module("myApp",[]);
-	app.controller("myCtrl",function($scope){
-		$scope.img = "${user.id}";
-		alert($scope.img);
+	app.factory('fileReader', ["$q", "$log", function($q, $log){
+		  var onLoad = function(reader, deferred, scope) {
+			    return function () {
+			      scope.$apply(function () {
+			        deferred.resolve(reader.result);
+			      });
+			    };
+			  };
+			  var onError = function (reader, deferred, scope) {
+			    return function () {
+			      scope.$apply(function () {
+			        deferred.reject(reader.result);
+			      });
+			    };
+			  };
+			  var getReader = function(deferred, scope) {
+			    var reader = new FileReader();
+			    reader.onload = onLoad(reader, deferred, scope);
+			    reader.onerror = onError(reader, deferred, scope);
+			    return reader;
+			  };
+			  var readAsDataURL = function (file, scope) {
+			    var deferred = $q.defer();
+			    var reader = getReader(deferred, scope);		 
+			    reader.readAsDataURL(file);
+			    return deferred.promise;
+			  };
+			  return {
+			    readAsDataUrl: readAsDataURL  
+			  };
+			}])
+			
+	app.controller("myCtrl",function($scope,fileReader){
+		$scope.img = "${user.userImage}";
+		$scope.pic = true;
+		$scope.getFile = function () {
+             fileReader.readAsDataUrl($scope.file, $scope)
+                           .then(function(result) {
+                               $scope.img = result;
+                           });
+         };
+         
+         
 	});
+	
+	app.directive('fileModel', ['$parse', function ($parse) {
+	  return {
+	    restrict: 'A',
+	    link: function(scope, element, attrs, ngModel) {
+	      var model = $parse(attrs.fileModel);
+	      var modelSetter = model.assign;
+	      element.bind('change', function(event){
+	        scope.$apply(function(){
+	          modelSetter(scope, element[0].files[0]);
+	        });
+	        //附件预览
+	        scope.file = (event.srcElement || event.target).files[0];
+			if(scope.file.type.indexOf("image")==-1){
+				alert("上传格式不正确");	
+				return;
+			}
+	        scope.getFile();
+	        scope.pic = false;
+	      });
+	    }
+	  };
+	}]);
 </script>
